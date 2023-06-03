@@ -10,7 +10,7 @@ function register() {
 function sendEmail() {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            // return reject("Error triggered!")
+            // return reject("Error triggered!") // to trigger error
             console.log("Email sent!")
             resolve()
         }, 2000);
@@ -30,14 +30,13 @@ function getUserData() {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             console.log("Got user data!")
+            resolve()
         }, 1000)
     })
 }
 
 function displayUserData() {
-    return new Promise((resolve, reject) => {
-        console.log("displayed data!")
-    })
+    console.log("displayed data!")
 }
 
 
@@ -52,15 +51,19 @@ async function auth() {
         await sendEmail()
         await login()
         await getUserData()
-        await displayUserData()
+        displayUserData()
         console.log(message)
+        return new Promise((resolve, reject) => {
+            resolve("Okay! auth worked flawlessly")
+        })
     } catch (error) {
         console.log(error)
         throw new Error()
     }
 }
 
-auth().then(() => {
+auth().then((data) => {
+    console.log(data)
     console.log('All set to start a new project!')
 }).catch((err) => {
     console.log(err)
