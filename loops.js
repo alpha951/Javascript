@@ -12,6 +12,11 @@ for (const c of langauge) {
     console.log(c)
 }
 
+//! forEach loop
+nums.forEach((num) => {
+    num *= 2;
+    console.log(num)
+})
 
 //? for objects
 
@@ -30,5 +35,6 @@ for (const entries of Object.entries(person)) {
 for (const [key, value] of Object.entries(person)) {
     console.log(key, value)
 }
+
 
 
