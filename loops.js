@@ -30,3 +30,5 @@ for (const entries of Object.entries(person)) {
 for (const [key, value] of Object.entries(person)) {
     console.log(key, value)
 }
+
+
